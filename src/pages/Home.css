@@ -1,0 +1,29 @@
+.home-container {
+    padding: 24px 32px;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--yt-white);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .home-container {
+        padding: 16px;
+    }
+    .video-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+    .section-title {
+        font-size: 22px;
+    }
+}

@@ -1,0 +1,15 @@
+.search-results-container {
+    padding: 24px 32px;
+}
+
+.search-heading {
+    font-size: 24px;
+    color: var(--yt-white);
+    margin-bottom: 24px;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+}

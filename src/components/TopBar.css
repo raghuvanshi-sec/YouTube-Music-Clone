@@ -1,0 +1,46 @@
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--yt-nav-height);
+    padding: 0 32px;
+    background-color: var(--yt-black);
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-section {
+    width: 200px; /* Space to balance search bar centering */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profile-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--yt-red);
+    color: var(--yt-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .top-bar {
+        padding: 0 16px;
+    }
+    .profile-section {
+        display: none;
+    }
+}

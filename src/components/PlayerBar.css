@@ -1,0 +1,118 @@
+.player-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--yt-player-height);
+    background-color: var(--yt-dark-grey);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    z-index: 200;
+}
+
+.player-bar-placeholder {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--yt-player-height);
+    background-color: var(--yt-dark-grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--yt-light-grey);
+    z-index: 200;
+}
+
+.player-left {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    min-width: 180px;
+}
+
+.player-art {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    margin-right: 16px;
+    object-fit: cover;
+}
+
+.track-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.track-title {
+    color: var(--yt-white);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.track-artist {
+    color: var(--yt-light-grey);
+    font-size: 12px;
+}
+
+.player-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.control-btn {
+    color: var(--yt-white);
+    font-size: 20px;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover {
+    opacity: 1;
+}
+
+.play-pause-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--yt-white);
+    color: var(--yt-black);
+    font-size: 16px;
+}
+
+.play-pause-btn:hover {
+    transform: scale(1.05);
+}
+
+.player-right {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.youtube-player-hidden {
+    display: none;
+}
