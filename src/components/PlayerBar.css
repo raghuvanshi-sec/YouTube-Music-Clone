@@ -30,21 +30,22 @@
 .player-left {
     display: flex;
     align-items: center;
-    width: 30%;
-    min-width: 180px;
+    width: 40%;
+    min-width: 250px;
+    gap: 12px;
 }
 
 .player-art {
     width: 48px;
     height: 48px;
     border-radius: 4px;
-    margin-right: 16px;
     object-fit: cover;
 }
 
 .track-info {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .track-title {
@@ -63,6 +64,29 @@
     font-size: 12px;
 }
 
+.player-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    background: transparent;
+    border: none;
+    color: var(--yt-light-grey);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--yt-white);
+}
+
 .player-center {
     display: flex;
     flex-direction: column;
@@ -73,24 +97,28 @@
 .controls {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
 }
 
 .control-btn {
     color: var(--yt-white);
-    font-size: 20px;
+    font-size: 18px;
     opacity: 0.9;
-    transition: opacity 0.2s;
+    transition: all 0.2s;
     background: transparent;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 6px;
+    border-radius: 50%;
 }
 
 .control-btn:hover {
     opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
 }
 
 .play-pause-btn {
@@ -100,10 +128,12 @@
     background-color: var(--yt-white);
     color: var(--yt-black);
     font-size: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .play-pause-btn:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .player-right {
@@ -111,6 +141,46 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    gap: 12px;
+}
+
+.volume-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.volume-slider {
+    width: 100px;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--yt-white);
+    cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--yt-white);
+    cursor: pointer;
+    border: none;
 }
 
 .youtube-player-hidden {
