@@ -117,6 +117,7 @@ A modern, responsive web application that replicates the core functionality and 
 ### Basic Navigation
 
 1. **Home**: Browse trending and recommended musicyoutube-music-clone/
+   
 ├── public/                         # Static assets (icons, images, fonts)
 
 ├── src/
