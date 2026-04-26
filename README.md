@@ -112,40 +112,64 @@ A modern, responsive web application that replicates the core functionality and 
 
 ## Project Structure
 
-youtube-music-clone/
-├── public/                 # Static assets
-├── src/
-│   ├── components/         # Reusable UI components
-│   │   ├── PlayerBar.jsx   # Main player controls
-│   │   ├── Sidebar.jsx     # Navigation sidebar
-│   │   ├── TopBar.jsx      # Top navigation bar
-│   │   ├── SearchBar.jsx   # Search functionality
-│   │   ├── VideoCard.jsx   # Video thumbnail component
-│   │   └── ...
-│   ├── pages/             # Page components
-│   │   ├── Home.jsx       # Home page with trending music
-│   │   ├── Explore.jsx    # Discovery and mood browsing
-│   │   ├── Library.jsx    # User's saved content
-│   │   ├── SearchResults.jsx # Search results page
-│   │   └── NowPlaying.jsx # Full-screen player
-│   ├── context/           # React context providers
-│   │   └── PlayerContext.jsx # Player state management
-│   ├── services/          # API integration
-│   │   └── youtube.js     # YouTube API calls
-│   ├── App.jsx            # Main app component
-│   ├── main.jsx           # Application entry point
-│   └── index.css          # Global styles
-├── .env                   # Environment variables
-├── .eslintrc.cjs          # ESLint configuration
-├── package.json           # Project dependencies
-├── vite.config.js         # Vite configuration
-└── README.md             # This file
-
 ## Usage
 
 ### Basic Navigation
 
-1. **Home**: Browse trending and recommended music
+1. **Home**: Browse trending and recommended musicyoutube-music-clone/
+├── public/                         # Static assets (icons, images, fonts)
+
+├── src/
+│   ├── assets/                     # Images, icons, logos
+│   ├── components/                 # Pure reusable UI (dumb components)
+│   │   ├── ui/                     # Generic UI (Button, Card, Loader)
+│   │   ├── layout/                 # Layout components
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── TopBar.jsx
+│   │   │   └── PlayerBar.jsx
+│   │   └── media/                  # Music-specific UI
+│   │       ├── VideoCard.jsx
+│   │       └── SearchBar.jsx
+│
+│   ├── features/                   # Feature-based modular architecture
+│   │   ├── home/
+│   │   │   ├── Home.jsx
+│   │   │   └── homeSlice.js
+│   │   ├── explore/
+│   │   │   └── Explore.jsx
+│   │   ├── library/
+│   │   │   └── Library.jsx
+│   │   ├── search/
+│   │   │   ├── SearchResults.jsx
+│   │   │   └── searchService.js
+│   │   └── player/
+│   │       ├── NowPlaying.jsx
+│   │       └── playerSlice.js
+│
+│   ├── context/                    # Global state (if not using Redux/Zustand)
+│   │   └── PlayerContext.jsx
+│
+│   ├── hooks/                      # Custom hooks (usePlayer, useFetch)
+│
+│   ├── services/                   # API layer (external calls)
+│   │   └── youtubeService.js
+│
+│   ├── utils/                      # Helper functions (formatTime, debounce)
+│
+│   ├── routes/                     # Centralized routing
+│   │   └── AppRoutes.jsx
+│
+│   ├── App.jsx                     # Root component
+│   ├── main.jsx                    # Entry point
+│   └── styles/
+│       └── index.css               # Global styles
+│
+├── .env                            # Environment variables
+├── .eslintrc.cjs
+├── package.json
+├── vite.config.js
+└── README.md
+
 2. **Explore**: Discover music by mood and genre
 3. **Library**: Access your saved songs and playlists
 4. **Search**: Find specific songs, artists, or albums
