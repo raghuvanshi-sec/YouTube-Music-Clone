@@ -110,36 +110,115 @@ A modern, responsive web application that replicates the core functionality and 
 6. **Open your browser:**
    Navigate to `http://localhost:5173`
 
+## Project Architecture
+
+```mermaid
+graph TD
+    %% Main Application Structure
+    App[App.jsx] --> Router[React Router]
+    App --> PContext[PlayerContext]
+
+    %% Router Links to Pages
+    subgraph Pages
+        Router --> Home[Home Page]
+        Router --> Explore[Explore Page]
+        Router --> Library[Library Page]
+        Router --> SearchResults[SearchResults Page]
+        Router --> NowPlaying[NowPlaying Page]
+    end
+
+    %% Pages use Components
+    Home --> VideoCard[VideoCard]
+    Explore --> VideoCard
+    Library --> VideoCard
+    SearchResults --> VideoCard
+
+    %% Persistent Layout Components
+    App --> Sidebar[Sidebar]
+    App --> TopBar[TopBar]
+    App --> PlayerBar[PlayerBar]
+    TopBar --> SearchBar[SearchBar]
+
+    %% Data Flow & State
+    subgraph "State & Services"
+        PContext <--> PlayerInstance[YouTube Player Instance]
+        PContext <--> LocalStorage[(Local Storage)]
+        Home & Explore & SearchResults --> YTService[youtube.js]
+        YTService --> YTAPI[YouTube Data API v3]
+    end
+
+    %% Context Interactions
+    Home & Explore & Library & SearchResults -- Play Request --> PContext
+    PlayerBar <--> PContext
+    NowPlaying <--> PContext
+
+    %% Styling
+    classDef page fill:#1a1a1a,stroke:#ff0000,stroke-width:2px,color:#ffffff
+    classDef context fill:#1a1a1a,stroke:#ffffff,stroke-width:2px,color:#ffffff
+    classDef service fill:#1a1a1a,stroke:#4CAF50,stroke-width:2px,color:#ffffff
+    class Home,Explore,Library,SearchResults,NowPlaying page
+    class PContext context
+    class YTService service
+```
+
 ## Project Structure
 
-youtube-music-clone/
-├── public/                 # Static assets
-├── src/
-│   ├── components/         # Reusable UI components
-│   │   ├── PlayerBar.jsx   # Main player controls
-│   │   ├── Sidebar.jsx     # Navigation sidebar
-│   │   ├── TopBar.jsx      # Top navigation bar
-│   │   ├── SearchBar.jsx   # Search functionality
-│   │   ├── VideoCard.jsx   # Video thumbnail component
-│   │   └── ...
-│   ├── pages/             # Page components
-│   │   ├── Home.jsx       # Home page with trending music
-│   │   ├── Explore.jsx    # Discovery and mood browsing
-│   │   ├── Library.jsx    # User's saved content
-│   │   ├── SearchResults.jsx # Search results page
-│   │   └── NowPlaying.jsx # Full-screen player
-│   ├── context/           # React context providers
-│   │   └── PlayerContext.jsx # Player state management
-│   ├── services/          # API integration
-│   │   └── youtube.js     # YouTube API calls
-│   ├── App.jsx            # Main app component
-│   ├── main.jsx           # Application entry point
-│   └── index.css          # Global styles
-├── .env                   # Environment variables
-├── .eslintrc.cjs          # ESLint configuration
-├── package.json           # Project dependencies
-├── vite.config.js         # Vite configuration
-└── README.md             # This file
+```mermaid
+graph TD
+    Root[youtube-music-clone] --> Public([public/])
+    Root --> Src([src/])
+    Root --> ConfigFiles[Config Files]
+
+    subgraph "Source Code (src/)"
+        Src --> Components([components/])
+        Src --> Pages([pages/])
+        Src --> Context([context/])
+        Src --> Services([services/])
+        Src --> AppFile(App.jsx)
+        Src --> MainFile(main.jsx)
+    end
+
+    subgraph "Core Components"
+        Components --> Player[PlayerBar.jsx]
+        Components --> Side[Sidebar.jsx]
+        Components --> Top[TopBar.jsx]
+        Components --> Search[SearchBar.jsx]
+    end
+
+    subgraph "View Pages"
+        Pages --> Home[Home.jsx]
+        Pages --> Explore[Explore.jsx]
+        Pages --> Lib[Library.jsx]
+        Pages --> Play[NowPlaying.jsx]
+    end
+
+    subgraph "Logic & State"
+        Context --> PC[PlayerContext.jsx]
+        Services --> YT[youtube.js]
+    end
+
+    subgraph "Configurations"
+        ConfigFiles --> Env(.env)
+        ConfigFiles --> Pkg(package.json)
+        ConfigFiles --> Vite(vite.config.js)
+    end
+
+    %% Styling
+    style Root fill:#f96,stroke:#333,stroke-width:4px
+    style Src fill:#69f,stroke:#333,stroke-width:2px
+    style Public fill:#69f,stroke:#333,stroke-width:2px
+```
+
+### Folder Breakdown
+
+| Directory | Purpose |
+| :--- | :--- |
+| **`public/`** | Static assets, icons, and public manifest files. |
+| **`src/components/`** | Reusable UI elements (Player, Sidebar, SearchBar, etc.). |
+| **`src/pages/`** | Main view components representing different routes. |
+| **`src/context/`** | Global state management via React Context API. |
+| **`src/services/`** | External API integration and utility functions. |
+| **`src/assets/`** | Local images, fonts, and style-specific assets. |
 
 ## Usage
 
