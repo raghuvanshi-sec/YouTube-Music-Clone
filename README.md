@@ -111,7 +111,7 @@ A modern, responsive web application that replicates the core functionality and 
    Navigate to `http://localhost:5173`
 
 ## Project Structure
-
+'''mermaid
 ## Usage
 
 ### Basic Navigation
